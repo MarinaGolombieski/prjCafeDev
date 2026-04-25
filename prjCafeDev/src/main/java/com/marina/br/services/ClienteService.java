@@ -33,6 +33,30 @@ private final ClienteRepository clienterepository;
 				salvo.getEmail()
 				);	
 	}
+
+	
+	public ClienteResponseDTO atualizar(Long id, ClienteRequestDTO dto) {
+    Cliente cliente = clienterepository.findById(id)
+        .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+
+    cliente.setNome(dto.getNome());
+    cliente.setEmail(dto.getEmail());
+
+    Cliente atualizado = clienterepository.save(cliente);
+
+    return new ClienteResponseDTO(
+        atualizado.getId(),
+        atualizado.getNome(),
+        atualizado.getEmail()
+    );
+}
+
+	
+public void deletar(Long id) {
+    clienterepository.deleteById(id);
+}
+
+
 	
 		public  ClienteResponseDTO buscarPorId(Long id) {
 			Cliente cliente = clienterepository.findById(id).orElseThrow(()-> new RuntimeException("Cliente não encontrado"));
