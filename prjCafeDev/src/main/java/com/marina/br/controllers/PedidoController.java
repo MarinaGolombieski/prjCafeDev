@@ -14,7 +14,7 @@ import com.marina.br.dtos.PedidoResponseDTO;
 import com.marina.br.services.PedidoService;
 
 @RestController
-@RequestMapping("/produto")
+@RequestMapping("/pedido")
 public class PedidoController {
 	private final PedidoService service;
 
