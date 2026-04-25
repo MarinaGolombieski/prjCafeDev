@@ -1,7 +1,14 @@
 package com.marina.br.dtos;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
 public class ClienteRequestDTO {
+	@NotBlank
 	private String nome;
+	
+	@Email
+    @NotBlank
 	private String email;
 	
 	
