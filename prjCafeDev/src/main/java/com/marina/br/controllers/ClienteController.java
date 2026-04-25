@@ -13,6 +13,8 @@ import com.marina.br.dtos.ClienteRequestDTO;
 import com.marina.br.dtos.ClienteResponseDTO;
 import com.marina.br.services.ClienteService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController {
@@ -26,7 +28,7 @@ public class ClienteController {
 	
 
 	@PostMapping
-	public ClienteResponseDTO salvar(@RequestBody ClienteRequestDTO dto) {
+	public ClienteResponseDTO salvar(@RequestBody @Valid ClienteRequestDTO dto) {
 		return service.salvar(dto);
 	}
 
